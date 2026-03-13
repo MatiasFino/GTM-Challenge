@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Activity, Target } from 'lucide-react';
 
 interface NavbarProps {
