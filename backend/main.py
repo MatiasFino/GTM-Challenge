@@ -93,6 +93,17 @@ def delete_lead(lead_id: int, db: Session = Depends(get_db)):
     db.commit()
     return {"message": "Lead deleted successfully"}
 
+# BOTÓN ROJO DE AUTODESTRUCCIÓN PARA LA DEMO
+@app.get("/api/reset-demo-db")
+def reset_database():
+    import os
+    if os.path.exists("./leads.db"):
+        os.remove("./leads.db")
+        init_db() # Vuelve a crear las tablas vacías
+        return {"message": "Base de datos borrada exitosamente. ¡Lista para la entrevista!"}
+    return {"message": "La base de datos ya estaba vacía."}
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
