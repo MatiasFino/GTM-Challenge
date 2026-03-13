@@ -106,7 +106,7 @@ export default function EnrichLead() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Main Info */}
             <LeadCard className="lg:col-span-2 p-8 space-y-6 relative overflow-hidden group h-full">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-electric-blue/5 rounded-full blur-2xl -mr-20 -mt-20 group-hover:bg-electric-blue/10 transition duration-700 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-electric-blue/20 to-transparent opacity-50 group-hover:opacity-100 transition duration-700 pointer-events-none" />
               
               <div className="flex items-start justify-between">
                 <div>

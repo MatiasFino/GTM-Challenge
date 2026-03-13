@@ -11,13 +11,10 @@ export default function ScoreCircle({ score, size = 120 }: ScoreCircleProps) {
   const strokeDashoffset = circumference - (score / 100) * circumference;
 
   let colorClass = "text-red-500";
-  let glowClass = "drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]";
   if (score >= 70) {
     colorClass = "text-green-500";
-    glowClass = "drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]";
   } else if (score >= 40) {
     colorClass = "text-yellow-400";
-    glowClass = "drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]";
   }
 
   return (
@@ -43,7 +40,7 @@ export default function ScoreCircle({ score, size = 120 }: ScoreCircleProps) {
           fill="transparent"
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
-          className={`${colorClass} ${glowClass} transition-all duration-1000 ease-out`}
+          className={`${colorClass} transition-all duration-1000 ease-out`}
           strokeLinecap="round"
         />
       </svg>
