@@ -11,8 +11,8 @@ export default function LeadCard({ children, className, hoverEffect = true, ...p
   return (
     <div
       className={cn(
-        "bg-navy-800/80 backdrop-blur-md rounded-xl border border-navy-700 shadow-xl overflow-hidden",
-        hoverEffect && "transition-all duration-300 hover:border-electric-blue/50 hover:shadow-electric-blue/10 hover:-translate-y-1",
+        "bg-navy-800 rounded-xl border border-navy-700 shadow-xl overflow-hidden",
+        hoverEffect && "transition duration-300 hover:border-electric-blue/50 hover:shadow-electric-blue/10 hover:-translate-y-1 hover:shadow-2xl",
         className
       )}
       {...props}
