@@ -76,7 +76,8 @@ Return ONLY the JSON, no additional text."""
             )
             content = response.content[0].text
         elif gemini_key:
-            url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={gemini_key}"
+            clean_key = gemini_key.strip().strip('"').strip("'")
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={clean_key}"
             headers = {'Content-Type': 'application/json'}
             data = {
                 "contents": [{"parts": [{"text": prompt}]}],
@@ -100,4 +101,7 @@ Return ONLY the JSON, no additional text."""
         return json.loads(content)
     except Exception as e:
         print(f"Error calling AI API: {e}")
-        return MOCK_RESPONSE
+        error_response = MOCK_RESPONSE.copy()
+        error_response["company_name"] = "API Connection Error"
+        error_response["fit_justification"] = f"ERROR DETAILS: {str(e)}. Revisa los logs en Render.com o asegúrate de que tu API Key sea correcta y tenga saldo/cuota disponible."
+        return error_response
